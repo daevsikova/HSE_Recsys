@@ -15,7 +15,7 @@ class Test:
     
     @staticmethod
     def cosine(x, y):
-        return np.abs(x @ y.T / np.linalg.norm(x) * np.linalg.norm(y, axis=1))
+        return x @ y.T / (np.linalg.norm(x) * np.linalg.norm(y, axis=1) + 1e-8)
         
     def get_similars(self, item_id, k=10):
         i = np.where(self.items == item_id)[0][0]
